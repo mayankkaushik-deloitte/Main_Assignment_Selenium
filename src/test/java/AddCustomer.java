@@ -41,21 +41,48 @@ public class AddCustomer {
         customerLogin();
         //deposit
         deposit();
-
+        //withdraw
+        withdraw();
     }
-    public static void deposit(){
+    public static void withdraw() throws InterruptedException {
+        prev = driver.findElement(By.cssSelector("body > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(3) > strong:nth-child(2)")).getText();
+        //click on withdraw button
+        driver.findElement(By.xpath("//button[normalize-space()='Withdrawl']")).click();
+        //enter amount
+        Thread.sleep(2000);
+        int amount = 500;
+        driver.findElement(By.xpath("//input[@placeholder='amount']")).sendKeys("500");
+        Thread.sleep(2000);
+        //CLick withdraw
+        driver.findElement(By.cssSelector("button[type='submit']")).click();
+        Thread.sleep(2000);
+
+        now = driver.findElement(By.cssSelector("body > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(3) > strong:nth-child(2)")).getText();
+        if(Integer.parseInt(prev) - amount == Integer.parseInt(now)){
+            System.out.println("Correct withdrawal");
+        }else{
+            System.out.println("Wrong withdrawal");
+        }
+    }
+    public static void deposit() throws InterruptedException {
         //get prev amount
         prev = driver.findElement(By.cssSelector("body > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(3) > strong:nth-child(2)")).getText();
         //click on deposit
+        Thread.sleep(2000);
+
         driver.findElement(By.xpath("//button[normalize-space()='Deposit']")).click();
         //enter amount
+        Thread.sleep(2000);
         int amount = 1000;
         driver.findElement(By.xpath("//input[@placeholder='amount']")).sendKeys("1000");
         System.out.println(driver.findElement(By.xpath("//input[@placeholder='amount']")).getText());
+        Thread.sleep(2000);
         //click on deposit
         driver.findElement(By.xpath("//button[@type='submit']")).click();
+        Thread.sleep(2000);
         //get new balance
         now = driver.findElement(By.cssSelector("body > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(3) > strong:nth-child(2)")).getText();
+        Thread.sleep(2000);
         System.out.println(now);
         if((Integer.parseInt(now) - amount) == Integer.parseInt(prev))
         {
