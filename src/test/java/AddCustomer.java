@@ -7,6 +7,8 @@ import java.util.logging.Logger;
 
 public class AddCustomer {
     public static WebDriver driver = BaseClass.driver;
+    String prev;
+    String now;
     public static void addCustomerFun() throws InterruptedException {
         //click on bank manager login
         driver.findElement(By.cssSelector("button[ng-click='manager()']")).click();
@@ -39,7 +41,14 @@ public class AddCustomer {
         deposit();
 
     }
-    public static coid 
+    public static void deposit(){
+        //click on deposit
+        driver.findElement(By.xpath("//button[normalize-space()='Deposit']")).click();
+        //enter amount
+        driver.findElement(By.xpath("//input[@placeholder='amount']")).sendKeys("1000");
+        //click on deposit
+        driver.findElement(By.xpath("//button[@type='submit']")).click();
+    }
     public static void customerLogin() throws InterruptedException {
         //click customer login
         driver.findElement(By.xpath("//button[normalize-space()='Customer Login']")).click();
