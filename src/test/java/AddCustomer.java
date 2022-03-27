@@ -31,13 +31,18 @@ public class AddCustomer {
         System.out.println(val);
         openAccountFun();
         goToHome();
-        cutomerLogin();
+        customerLogin();
+
     }
-    public static void cutomerLogin(){
+    public static void customerLogin() throws InterruptedException {
         //click customer login
         driver.findElement(By.xpath("//button[normalize-space()='Customer Login']")).click();
         Select yourName = new Select(driver.findElement(By.xpath("//select[@id='userSelect']")));
         yourName.selectByVisibleText("fds asdasd");
+        Thread.sleep(2000);
+        //click Login
+        driver.findElement(By.xpath("//button[normalize-space()='Login']")).click();
+
     }
     public static void goToHome() {
         //click on home button
