@@ -29,11 +29,17 @@ public class AddCustomer {
         String val = driver.switchTo().alert().getText();
         driver.switchTo().alert().accept();
         System.out.println(val);
+        //go to open account page
         openAccountFun();
+        //click on home
         goToHome();
+        //go to customer login
         customerLogin();
+        //deposit
+        deposit();
 
     }
+    public static coid 
     public static void customerLogin() throws InterruptedException {
         //click customer login
         driver.findElement(By.xpath("//button[normalize-space()='Customer Login']")).click();
@@ -54,13 +60,17 @@ public class AddCustomer {
         //click on customer dropdown
         Thread.sleep(2000);
         Select customer = new Select(driver.findElement(By.xpath("//select[@id='userSelect']")));
+        //select user
         customer.selectByVisibleText("fds asdasd");
         Thread.sleep(2000);
+        //select currency
         Select currency = new Select(driver.findElement(By.xpath("//select[@id='currency']")));
         currency.selectByVisibleText("Rupee");
         Thread.sleep(2000);
+        //Click process
         driver.findElement(By.xpath("//button[normalize-space()='Process']")).click();
         Thread.sleep(2000);
+        //get the alert message
         String val = driver.switchTo().alert().getText();
         driver.switchTo().alert().accept();
         System.out.println(val);
