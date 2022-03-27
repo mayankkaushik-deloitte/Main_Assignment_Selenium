@@ -5,10 +5,12 @@ import org.openqa.selenium.support.ui.Select;
 import javax.swing.*;
 import java.util.logging.Logger;
 
+import static java.lang.Integer.parseInt;
+
 public class AddCustomer {
     public static WebDriver driver = BaseClass.driver;
-    String prev;
-    String now;
+    static String prev;
+    static String now;
     public static void addCustomerFun() throws InterruptedException {
         //click on bank manager login
         driver.findElement(By.cssSelector("button[ng-click='manager()']")).click();
@@ -42,12 +44,25 @@ public class AddCustomer {
 
     }
     public static void deposit(){
+        //get prev amount
+        prev = driver.findElement(By.cssSelector("body > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(3) > strong:nth-child(2)")).getText();
         //click on deposit
         driver.findElement(By.xpath("//button[normalize-space()='Deposit']")).click();
         //enter amount
+        int amount = 1000;
         driver.findElement(By.xpath("//input[@placeholder='amount']")).sendKeys("1000");
+        System.out.println(driver.findElement(By.xpath("//input[@placeholder='amount']")).getText());
         //click on deposit
         driver.findElement(By.xpath("//button[@type='submit']")).click();
+        //get new balance
+        now = driver.findElement(By.cssSelector("body > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(3) > strong:nth-child(2)")).getText();
+        System.out.println(now);
+        if((Integer.parseInt(now) - amount) == Integer.parseInt(prev))
+        {
+            System.out.println("Correct deposit");
+        }else{
+            System.out.println("Wrong Deposit");
+        }
     }
     public static void customerLogin() throws InterruptedException {
         //click customer login
