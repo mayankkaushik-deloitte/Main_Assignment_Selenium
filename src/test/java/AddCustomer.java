@@ -30,6 +30,18 @@ public class AddCustomer {
         driver.switchTo().alert().accept();
         System.out.println(val);
         openAccountFun();
+        goToHome();
+        cutomerLogin();
+    }
+    public static void cutomerLogin(){
+        //click customer login
+        driver.findElement(By.xpath("//button[normalize-space()='Customer Login']")).click();
+        Select yourName = new Select(driver.findElement(By.xpath("//select[@id='userSelect']")));
+        yourName.selectByVisibleText("fds asdasd");
+    }
+    public static void goToHome() {
+        //click on home button
+        driver.findElement(By.xpath("//button[normalize-space()='Home']")).click();
     }
     public static void openAccountFun() throws InterruptedException {
         //go to open account
