@@ -1,11 +1,14 @@
 import net.jodah.failsafe.internal.util.Assert;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
 import javax.swing.*;
+import java.util.concurrent.TimeUnit;
 import java.util.logging.Logger;
 
 import static java.lang.Integer.parseInt;
@@ -13,48 +16,47 @@ import static java.lang.Integer.parseInt;
 public class AddCustomer extends BaseClass {
     //Page Factory- OR;
     @FindBy(xpath = "//input[@placeholder='First Name']")
-    WebElement firstname;
+    static
+    WebElement fName;
 
     @FindBy(xpath = "//input[@placeholder='Last Name']")
-    WebElement lastname;
+    static
+    WebElement lName;
 
     @FindBy(xpath = "//input[@placeholder='Post Code']")
-    WebElement postcode;
+    static
+    WebElement postCode;
 
     @FindBy(xpath = "//button[text()='Add Customer']")
-    WebElement addcustomerbtn;
+    static
+    WebElement addCustomerBtn;
 
     @FindBy(xpath = "//button[@class='btn home']")
-    WebElement homebtn;
+    WebElement homeBtn;
 
     @FindBy(xpath = "//button[normalize-space()='Open Account']")
-    WebElement openaccountbtn;
+    WebElement openAccountBtn;
 
     @FindBy(xpath = "//button[normalize-space()='Customers']")
-    WebElement customersbtn;
+    WebElement customersBtn;
     static String val;
+    public AddCustomer(){
+        PageFactory.initElements(driver,this);
+    }
     public static void addCustomerFun() throws InterruptedException {
-        //click on bank manager login
-        driver.findElement(By.cssSelector("button[ng-click='manager()']")).click();
-        Thread.sleep(2000);
-        //click on add customer
-        driver.findElement(By.xpath("//button[normalize-space()='Add Customer']")).click();
-        Thread.sleep(2000);
-        //Add First name field
-        driver.findElement(By.xpath("//input[@placeholder='First Name']")).sendKeys("fds");
-        Thread.sleep(2000);
-        //Add Second name field
-        driver.findElement(By.xpath("//input[@placeholder='Last Name']")).sendKeys("asdasd");
-        Thread.sleep(2000);
-        //Add Post Code field
-        driver.findElement(By.xpath("//input[@placeholder='Post Code']")).sendKeys("21323");
-        Thread.sleep(2000);
-        //Press on button
-        driver.findElement(By.xpath("//button[@type='submit']")).click();
-        Thread.sleep(2000);
-        val = driver.switchTo().alert().getText();
-        driver.switchTo().alert().accept();
-        System.out.println(val);
+        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+        fName.sendKeys("Mayank");
+        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+        lName.sendKeys("Kaushik");\
+        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+        postCode.sendKeys("201005");
+        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+        addCustomerBtn.click();
+        Alert alertStatus = driver.switchTo().alert();
+        val = alertStatus.getText();
+        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+        alertStatus.accept();
+        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
     }
     public static void goToHome() {
         //click on home button
