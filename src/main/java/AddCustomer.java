@@ -50,7 +50,7 @@ public class AddCustomer {
         transactionConfirmation();
     }
     public static void transactionConfirmation(){
-        
+
     }
     public static void checkForInvalidWithdrawal(){
         String text = driver.findElement(By.xpath("//span[@class='error ng-binding']")).getText();
@@ -58,7 +58,7 @@ public class AddCustomer {
             Assert.assertEquals(text, "Transaction successful");
         }
         catch (AssertionError e){
-            System.out.println("You dont have enough balance.");
+            System.out.println("You don't have enough balance.");
         }
     }
     public static void withdraw() throws InterruptedException {
