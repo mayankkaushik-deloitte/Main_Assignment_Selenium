@@ -1,26 +1,65 @@
-import org.openqa.selenium.By;
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
-public class OpenAccount {
-    public static void openAccountFun() throws InterruptedException {
-        //go to open account
-        BaseClass.driver.findElement(By.cssSelector(".btn.btn-lg.tab[ng-class='btnClass2']")).click();
-        //click on customer dropdown
+import java.util.concurrent.TimeUnit;
+
+public class BankManager extends BaseClass{
+    //Page Factory- OR;
+    @FindBy(xpath = "//button[@class='btn home']")
+    WebElement btnHome;
+
+    @FindBy(xpath = "//button[normalize-space()='Customers']")
+    WebElement customersBtn;
+
+    @FindBy(xpath = "//button[@type='submit']")
+    WebElement processBtn;
+
+    @FindBy(xpath = "//select[@id='userSelect']")
+    WebElement userSelect;
+
+    @FindBy(xpath = "//select[@id='currency']")
+    WebElement currency;
+
+    @FindBy(xpath = "//button[normalize-space()='Add Customer']")
+    WebElement addCustomer;
+    public String altMsg;
+
+    public openAccount(){
+        PageFactory.initElements(driver,this);
+    }
+    public Customerspage customerbtnclick() throws InterruptedException {
+        customersBtn.click();
         Thread.sleep(2000);
-        Select customer = new Select(BaseClass.driver.findElement(By.xpath("//select[@id='userSelect']")));
-        //select user
-        customer.selectByVisibleText("fds asdasd");
+        return new CustomersPage();
+    }
+
+    public LoginPage homeBtnClick() throws InterruptedException {
+        btnHome.click();
         Thread.sleep(2000);
-        //select currency
-        Select currency = new Select(BaseClass.driver.findElement(By.xpath("//select[@id='currency']")));
-        currency.selectByVisibleText("Rupee");
+        return new LoginPage();
+    }
+
+    public AddCustomer clickaddcustomer() throws InterruptedException {
+        addCustomer.click();
         Thread.sleep(2000);
-        //Click process
-        BaseClass.driver.findElement(By.xpath("//button[normalize-space()='Process']")).click();
-        Thread.sleep(2000);
-        //get the alert message
-        String val = BaseClass.driver.switchTo().alert().getText();
-        BaseClass.driver.switchTo().alert().accept();
-        System.out.println(val);
+        return new AddCustomer();
+
+    }
+    public void userDropDown(String name,String currencyUser) throws InterruptedException {
+        Select selectuser=new Select(userSelect);
+        selectuser.selectByVisibleText(name);
+        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+        Select selectcurrency=new Select(currency);
+        selectcurrency.selectByVisibleText(currencyuser);
+        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+        processBtn.click();
+        Alert simplealert=driver.switchTo().alert();
+        altMsg = simplealert.getText();
+        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+        simplealert.accept();
+        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
     }
 }
