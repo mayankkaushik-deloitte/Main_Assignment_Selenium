@@ -58,6 +58,21 @@ public class AddCustomer extends BaseClass {
         alertStatus.accept();
         driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
     }
+    public LoginPage clickHomeBtn() throws InterruptedException {
+        homeBtn.click();
+        Thread.sleep(2000);
+        return new LoginPage();
+    }
+    public OpenAccount accountBtn() throws InterruptedException {
+        openAccountBtn.click();
+        Thread.sleep(2000);
+        return new OpenAccount();
+    }
+    public CustomerLogin customerBtn() throws InterruptedException {
+        customersBtn.click();
+        Thread.sleep(2000);
+        return new CustomerLogin();
+    }
     public static void goToHome() {
         //click on home button
         driver.findElement(By.xpath("//button[normalize-space()='Home']")).click();
