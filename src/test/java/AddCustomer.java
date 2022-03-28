@@ -46,6 +46,11 @@ public class AddCustomer {
         withdraw();
         //negative test
         checkForInvalidWithdrawal();
+        //transaction confirmation
+        transactionConfirmation();
+    }
+    public static void transactionConfirmation(){
+        
     }
     public static void checkForInvalidWithdrawal(){
         String text = driver.findElement(By.xpath("//span[@class='error ng-binding']")).getText();
