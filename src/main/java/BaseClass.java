@@ -1,6 +1,4 @@
 import org.apache.commons.math3.analysis.function.Add;
-import org.apache.poi.xssf.usermodel.XSSFSheet;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.checkerframework.checker.units.qual.C;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -17,15 +15,27 @@ public class BaseClass {
     public static WebDriver driver;
     public static Properties prop;
     public BaseClass(){
-
+        try{
+        prop=new Properties();
+        FileInputStream ip=new FileInputStream("C:\\Users\\mayakaushik\\Main_Assignment_Selenium\\src\\data\\configuration.properties");
+        prop.load(ip);
+    } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+        e.printStackTrace();
     }
+}
 
-    public static void init(){
-        System.setProperty("webdriver.chrome.driver","C:\\Users\\mayakaushik\\Documents\\chromedriver.exe");
-        driver = new ChromeDriver();
+
+    public static void intialisation(){
+        String browserName=prop.getProperty("browser");
+
+        if(browserName.equals("chrome")){
+            System.setProperty("webdriver.chrome.driver","C:\\Users\\mayakaushik\\Documents\\chromedriver.exe");
+            driver=new ChromeDriver();
+        }
         driver.manage().window().maximize();
-        driver.get("https://www.globalsqa.com/angularJs-protractor/BankingProject/#/login");
-        driver.manage().timeouts().implicitlyWait(5000, TimeUnit.MILLISECONDS);
+        driver.get(prop.getProperty("url"));
     }
 
 }

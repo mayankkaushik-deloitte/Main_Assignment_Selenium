@@ -15,7 +15,7 @@ public class OpenAccountTest extends BaseClass {
     }
     @BeforeMethod
     public void setUP() throws InterruptedException {
-        init();
+        intialisation();
         addCustomerDetails=new AddCustomer();
         loginPage=new LoginPage();
         openAccount=new OpenAccount();

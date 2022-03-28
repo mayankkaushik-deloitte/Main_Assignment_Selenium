@@ -13,7 +13,7 @@ public class BankManagerTest extends BaseClass {
     }
     @BeforeMethod
     public void setUp() throws InterruptedException {
-        init();
+        intialisation();
         objbankmanagerhome=new BankManager();
         loginpage=new LoginPage();
         objcustomers=new CustomerLogin();

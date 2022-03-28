@@ -1,10 +1,7 @@
 import com.graphbuilder.math.OpNode;
 import org.apache.commons.math3.analysis.function.Add;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 import java.util.Currency;
 import java.util.concurrent.TimeUnit;
@@ -20,7 +17,7 @@ public class AddCustomerTest extends BaseClass{
     }
     @BeforeMethod
     public void setUP() throws InterruptedException {
-        init();
+        BaseClass.intialisation();
         addCustomerDetails = new AddCustomer();
         loginPage = new LoginPage();
         openAccount = new OpenAccount();

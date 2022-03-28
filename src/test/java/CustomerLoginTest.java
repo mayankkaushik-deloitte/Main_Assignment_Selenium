@@ -16,7 +16,7 @@ public class CustomerLoginTest extends BaseClass{
     }
     @BeforeMethod
     public void setUP() throws InterruptedException {
-        init();
+        intialisation();
         objcustomer = new CustomerLogin();
         loginpage = new LoginPage();
         objaddcustomer =new AddCustomer();
@@ -27,11 +27,7 @@ public class CustomerLoginTest extends BaseClass{
     }
     @Test
     public void fillValueTest1() throws InterruptedException {
-        objcustomer.fillValue(prop.getProperty("firstname"));
-    }
-    @Test
-    public void fillValueTest2() throws InterruptedException {
-        objcustomer.fillValue(prop.getProperty("duplicatefname"));
+        objcustomer.fillValue("Fsd");
     }
     @Test
     public void addCustomerTest() throws InterruptedException {

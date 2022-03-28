@@ -13,7 +13,7 @@ public class LoginPageTest extends BaseClass{
 
     @BeforeMethod
     public void setUp(){
-        init();
+        intialisation();
         loginPage = new LoginPage();
         bankManagerhome=new BankManager();
         namePage= new NamePage();
