@@ -3,38 +3,51 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class CustomerLoginTest {
-    Loginpage objloginpage;
-    Bankmanagerhome objbankmanagerhome;
-    Namepage objnamepage;
-    public LoginPageTest(){
+public class CustomerLoginTest extends BaseClass{
+    CustomerLogin objcustomer;
+    LoginPage loginpage;
+    BankManager bankmanagerhome;
+    AddCustomer objaddcustomer;
+    OpenAccount objopencnt;
+
+
+    public CustomerLoginTest (){
         super();
     }
-
     @BeforeMethod
-    public void setUp(){
+    public void setUP() throws InterruptedException {
         init();
-        objloginpage=new Loginpage();
-        objbankmanagerhome=new Bankmanagerhome();
-        objnamepage= new Namepage();
-    }
-    @Test(priority = 2)
-    public void loginpagetitletest(){
-        String title=objloginpage.validateloginpagetitle();
-        Assert.assertEquals(title,"XYZ Bank");
-    }
-    @Test(priority = 1)
-    public void managerlogintest() throws InterruptedException {
-        objbankmanagerhome=objloginpage.clickonmanagerlogin();
+        objcustomer = new CustomerLogin();
+        loginpage = new LoginPage();
+        objaddcustomer =new AddCustomer();
+        bankmanagerhome= new BankManager();
+        bankmanagerhome= loginpage.clickOnManagerLogin();
+        objcustomer= bankmanagerhome.clickCustomers();
+        Thread.sleep(2000);
     }
     @Test
-    public void customerlogintest() throws InterruptedException {
-        objnamepage= objloginpage.clickoncustomerlogin();
+    public void fillValueTest1() throws InterruptedException {
+        objcustomer.fillValue(prop.getProperty("firstname"));
+    }
+    @Test
+    public void fillValueTest2() throws InterruptedException {
+        objcustomer.fillValue(prop.getProperty("duplicatefname"));
+    }
+    @Test
+    public void addCustomerTest() throws InterruptedException {
+        objaddcustomer = objcustomer.addCustomers();
+    }
+    @Test
+    public void clickHomeTest() throws InterruptedException {
+        loginpage = objcustomer.clickHome();
+    }
+    @Test
+    public void openAccountTest() throws InterruptedException {
+        objopencnt = objcustomer.clickOpenAccount();
     }
 
     @AfterMethod
     public void tearDown(){
-
         driver.quit();
     }
 }
