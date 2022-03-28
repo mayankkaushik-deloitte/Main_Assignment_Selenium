@@ -47,7 +47,7 @@ public class AddCustomer extends BaseClass {
         driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
         fName.sendKeys("Mayank");
         driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
-        lName.sendKeys("Kaushik");\
+        lName.sendKeys("Kaushik");
         driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
         postCode.sendKeys("201005");
         driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);

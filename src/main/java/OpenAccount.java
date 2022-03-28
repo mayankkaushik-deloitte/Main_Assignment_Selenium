@@ -6,7 +6,7 @@ import org.openqa.selenium.support.ui.Select;
 
 import java.util.concurrent.TimeUnit;
 
-public class BankManager extends BaseClass{
+public class OpenAccount extends BaseClass{
     //Page Factory- OR;
     @FindBy(xpath = "//button[@class='btn home']")
     WebElement btnHome;
@@ -27,13 +27,13 @@ public class BankManager extends BaseClass{
     WebElement addCustomer;
     public String altMsg;
 
-    public openAccount(){
+    public OpenAccount(){
         PageFactory.initElements(driver,this);
     }
-    public Customerspage customerbtnclick() throws InterruptedException {
+    public CustomerLogin customerbtnclick() throws InterruptedException {
         customersBtn.click();
         Thread.sleep(2000);
-        return new CustomersPage();
+        return new CustomerLogin();
     }
 
     public LoginPage homeBtnClick() throws InterruptedException {
@@ -53,7 +53,7 @@ public class BankManager extends BaseClass{
         selectuser.selectByVisibleText(name);
         driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
         Select selectcurrency=new Select(currency);
-        selectcurrency.selectByVisibleText(currencyuser);
+        selectcurrency.selectByVisibleText(currencyUser);
         driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
         processBtn.click();
         Alert simplealert=driver.switchTo().alert();
