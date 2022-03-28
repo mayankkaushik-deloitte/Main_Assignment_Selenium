@@ -1,6 +1,7 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 
 import javax.swing.*;
 import java.util.logging.Logger;
@@ -43,6 +44,17 @@ public class AddCustomer {
         deposit();
         //withdraw
         withdraw();
+        //negative test
+        checkForInvalidWithdrawal();
+    }
+    public static void checkForInvalidWithdrawal(){
+        String text = driver.findElement(By.xpath("//span[@class='error ng-binding']")).getText();
+        try{
+            Assert.assertEquals(text, "Transaction successful");
+        }
+        catch (AssertionError e){
+            System.out.println("You dont have enough balance.");
+        }
     }
     public static void withdraw() throws InterruptedException {
         prev = driver.findElement(By.cssSelector("body > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(3) > strong:nth-child(2)")).getText();
@@ -51,7 +63,7 @@ public class AddCustomer {
         //enter amount
         Thread.sleep(2000);
         int amount = 500;
-        driver.findElement(By.xpath("//input[@placeholder='amount']")).sendKeys("500");
+        driver.findElement(By.xpath("//input[@placeholder='amount']")).sendKeys("5000");
         Thread.sleep(2000);
         //CLick withdraw
         driver.findElement(By.cssSelector("button[type='submit']")).click();
