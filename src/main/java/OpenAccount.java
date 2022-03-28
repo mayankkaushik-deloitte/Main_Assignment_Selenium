@@ -30,7 +30,7 @@ public class OpenAccount extends BaseClass{
     public OpenAccount(){
         PageFactory.initElements(driver,this);
     }
-    public CustomerLogin customerbtnclick() throws InterruptedException {
+    public CustomerLogin customerBtnClick() throws InterruptedException {
         customersBtn.click();
         Thread.sleep(2000);
         return new CustomerLogin();
@@ -42,24 +42,24 @@ public class OpenAccount extends BaseClass{
         return new LoginPage();
     }
 
-    public AddCustomer clickaddcustomer() throws InterruptedException {
+    public AddCustomer clickAddCustomer() throws InterruptedException {
         addCustomer.click();
         Thread.sleep(2000);
         return new AddCustomer();
 
     }
     public void userDropDown(String name,String currencyUser) throws InterruptedException {
-        Select selectuser=new Select(userSelect);
-        selectuser.selectByVisibleText(name);
+        Select selectUser=new Select(userSelect);
+        selectUser.selectByVisibleText(name);
         driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
-        Select selectcurrency=new Select(currency);
-        selectcurrency.selectByVisibleText(currencyUser);
+        Select selectCurrency=new Select(currency);
+        selectCurrency.selectByVisibleText(currencyUser);
         driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
         processBtn.click();
-        Alert simplealert=driver.switchTo().alert();
-        altMsg = simplealert.getText();
+        Alert simpleAlert=driver.switchTo().alert();
+        altMsg = simpleAlert.getText();
         driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
-        simplealert.accept();
+        simpleAlert.accept();
         driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
     }
 }
