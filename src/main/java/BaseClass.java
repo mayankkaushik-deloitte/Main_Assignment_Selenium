@@ -3,7 +3,6 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.*;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -15,21 +14,17 @@ public class BaseClass {
     public static XSSFWorkbook wbook;
     public static XSSFSheet sheet;
     private final String FILEPATH = "C:\\Users\\mayakaushik\\m_AS_4\\src\\test\\java\\Excel.xlsx";
-    @BeforeTest
     public void DataSetUp() throws IOException{
         FileInputStream fis = new FileInputStream(FILEPATH);
         wbook = new XSSFWorkbook(fis);
         sheet = wbook.getSheet("Sheet1");
     }
-    @Test
     public static void addCustomer() throws InterruptedException {
         AddCustomer.addCustomerFun();
     }
-    @AfterTest
     public void DataTearDown() throws IOException {
         wbook.close();
     }
-    @BeforeMethod
     public void SetUp(Method method){
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\mayakaushik\\Desktop\\selenium\\chromedriver.exe");
         driver = new ChromeDriver();
