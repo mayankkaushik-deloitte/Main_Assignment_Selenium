@@ -26,5 +26,11 @@ public class LoginPage extends BaseClass{
         return new BankManager();
 
     }
+    public NamePage clickoncustomerlogin() throws InterruptedException {
+        Thread.sleep(2000);
+        customer.click();
+        Thread.sleep(2000);
+        return new NamePage();
+    }
 
 }

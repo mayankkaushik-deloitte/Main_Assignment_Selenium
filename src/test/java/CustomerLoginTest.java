@@ -4,18 +4,37 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class CustomerLoginTest {
+    Loginpage objloginpage;
+    Bankmanagerhome objbankmanagerhome;
+    Namepage objnamepage;
+    public LoginPageTest(){
+        super();
+    }
+
     @BeforeMethod
-    public void setUp() throws InterruptedException {
-        BaseClass.SetUp();
+    public void setUp(){
+        init();
+        objloginpage=new Loginpage();
+        objbankmanagerhome=new Bankmanagerhome();
+        objnamepage= new Namepage();
     }
-    @Test (priority = 2)
-    public void customerLogin() throws InterruptedException {
-        CustomerLogin.customerLogin();
-        String currURL = BaseClass.driver.getCurrentUrl();
-        Assert.assertEquals(currURL, "https://www.globalsqa.com/angularJs-protractor/BankingProject/#/account");
+    @Test(priority = 2)
+    public void loginpagetitletest(){
+        String title=objloginpage.validateloginpagetitle();
+        Assert.assertEquals(title,"XYZ Bank");
     }
+    @Test(priority = 1)
+    public void managerlogintest() throws InterruptedException {
+        objbankmanagerhome=objloginpage.clickonmanagerlogin();
+    }
+    @Test
+    public void customerlogintest() throws InterruptedException {
+        objnamepage= objloginpage.clickoncustomerlogin();
+    }
+
     @AfterMethod
-    public void DataTear(){
-        BaseClass.driver.quit();
+    public void tearDown(){
+
+        driver.quit();
     }
 }

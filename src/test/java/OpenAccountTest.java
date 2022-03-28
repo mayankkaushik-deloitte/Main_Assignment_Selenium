@@ -42,7 +42,7 @@ public class OpenAccountTest extends BaseClass {
         openAccount.userDropDown("Harry Potter", "Dollar");
 
     }
-    
+
     @AfterMethod
     public void tearDown(){
 
