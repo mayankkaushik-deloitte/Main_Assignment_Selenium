@@ -25,7 +25,7 @@ public class BaseClass {
     public void DataTearDown() throws IOException {
         wbook.close();
     }
-    public void SetUp(Method method){
+    public static void SetUp(){
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\mayakaushik\\Desktop\\selenium\\chromedriver.exe");
         driver = new ChromeDriver();
         driver.get("https://www.globalsqa.com/angularJs-protractor/BankingProject/#/login");

@@ -11,6 +11,7 @@ import static java.lang.Integer.parseInt;
 public class AddCustomer {
     public static WebDriver driver = BaseClass.driver;
     static String prev;
+    static String val;
     static String now;
     public static void addCustomerFun() throws InterruptedException {
         //click on bank manager login
@@ -31,7 +32,7 @@ public class AddCustomer {
         //Press on button
         driver.findElement(By.xpath("//button[@type='submit']")).click();
         Thread.sleep(2000);
-        String val = driver.switchTo().alert().getText();
+        val = driver.switchTo().alert().getText();
         driver.switchTo().alert().accept();
         System.out.println(val);
     }
