@@ -1,6 +1,8 @@
 import net.jodah.failsafe.internal.util.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
 
 import javax.swing.*;
@@ -8,11 +10,29 @@ import java.util.logging.Logger;
 
 import static java.lang.Integer.parseInt;
 
-public class AddCustomer {
-    public static WebDriver driver = BaseClass.driver;
-    static String prev;
+public class AddCustomer extends BaseClass {
+    //Page Factory- OR;
+    @FindBy(xpath = "//input[@placeholder='First Name']")
+    WebElement firstname;
+
+    @FindBy(xpath = "//input[@placeholder='Last Name']")
+    WebElement lastname;
+
+    @FindBy(xpath = "//input[@placeholder='Post Code']")
+    WebElement postcode;
+
+    @FindBy(xpath = "//button[text()='Add Customer']")
+    WebElement addcustomerbtn;
+
+    @FindBy(xpath = "//button[@class='btn home']")
+    WebElement homebtn;
+
+    @FindBy(xpath = "//button[normalize-space()='Open Account']")
+    WebElement openaccountbtn;
+
+    @FindBy(xpath = "//button[normalize-space()='Customers']")
+    WebElement customersbtn;
     static String val;
-    static String now;
     public static void addCustomerFun() throws InterruptedException {
         //click on bank manager login
         driver.findElement(By.cssSelector("button[ng-click='manager()']")).click();

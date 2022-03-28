@@ -2,6 +2,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
 
 public class CustomerLogin {
+
     public static void customerLogin() throws InterruptedException {
         //click customer login
         BaseClass.driver.findElement(By.xpath("//button[normalize-space()='Customer Login']")).click();

@@ -10,7 +10,7 @@ public class AddCustomerTest {
     public void setUp() throws InterruptedException {
         BaseClass.SetUp();
     }
-    @Test
+    @Test(priority = 1)
     public void addCustomerTest() throws InterruptedException {
         AddCustomer.addCustomerFun();
         Assert.assertEquals(AddCustomer.val, "Customer added successfully with customer id :6");
