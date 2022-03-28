@@ -33,7 +33,7 @@ public class LoginPageTest extends BaseClass{
     }
 
     @AfterMethod
-    public void tearDown(){
+    public void DataTear(){
 
         driver.quit();
     }

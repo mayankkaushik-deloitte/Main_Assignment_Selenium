@@ -42,7 +42,7 @@ public class BankManagerTest extends BaseClass {
     }
 
     @AfterMethod
-    public void tearDown(){
+    public void DataTear(){
         driver.quit();
     }
 }
