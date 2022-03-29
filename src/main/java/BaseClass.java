@@ -1,5 +1,8 @@
+import org.apache.commons.io.FileUtils;
 import org.apache.commons.math3.analysis.function.Add;
 import org.checkerframework.checker.units.qual.C;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -37,5 +40,12 @@ public class BaseClass {
         driver.manage().window().maximize();
         driver.get(prop.getProperty("url"));
     }
-
+    public static void failed(){
+        File srcFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+        try{
+            FileUtils.copyFile(srcFile,new File("C:\\Users\\mayakaushik\\Main_Assignment_Selenium\\src\\data\\Screenshots\\testFailure.jpg"));
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+    }
 }

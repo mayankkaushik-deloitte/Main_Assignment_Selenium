@@ -6,19 +6,20 @@ import java.util.concurrent.TimeUnit;
 
 public class ProfilePage extends BaseClass{
     @FindBy (xpath = "//span[@class='fontBig ng-binding']")
-    WebElement userNameTitle
+    WebElement userNameTitle;
     @FindBy (xpath = "//button[normalize-space()='Deposit']")
-    WebElement deposit
+    WebElement deposit;
     @FindBy (xpath = "//button[normalize-space()='Deposit']")
-    WebElement withdrawal
+    WebElement withdrawal;
     @FindBy (xpath = "//button[normalize-space()='Transactions']")
-    WebElement transactionBtn
+    WebElement transactionBtn;
     @FindBy (xpath = "body > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(3) > strong:nth-child(2)")
-    WebElement balance
+    WebElement balance;
     @FindBy (xpath = "//input[@placeholder='amount']")
     WebElement fillVal;
-    @FindBy (xpath = "//input[@placeholder='amount']")
-    WebElement depositSubmitBtn
+    @FindBy (xpath = "//button[@type='submit']")
+    WebElement depositSubmitBtn;
+
     public ProfilePage () {
         PageFactory.initElements(driver,this);
     }

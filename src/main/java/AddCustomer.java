@@ -12,7 +12,6 @@ import java.util.concurrent.TimeUnit;
 import java.util.logging.Logger;
 
 import static java.lang.Integer.parseInt;
-
 public class AddCustomer extends BaseClass {
     //Page Factory- OR;
     @FindBy(xpath = "//input[@placeholder='First Name']")

@@ -7,7 +7,7 @@ public class LoginPage extends BaseClass{
     @FindBy(xpath = "/html/body/div/div/div[2]/div/div[1]/div[2]/button")
     WebElement bankManager;
 
-    @FindBy(xpath = "//button[text()='Customer Login']")
+    @FindBy(xpath = "//button[normalize-space()='Customer Login']")
     WebElement customer;
     //initialize page objects
     public LoginPage(){

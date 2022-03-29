@@ -5,7 +5,7 @@ import org.testng.annotations.*;
 
 import java.util.Currency;
 import java.util.concurrent.TimeUnit;
-
+@Listeners(CustomListener.class)
 public class AddCustomerTest extends BaseClass{
     AddCustomer addCustomerDetails;
     LoginPage loginPage;

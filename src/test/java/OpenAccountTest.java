@@ -1,8 +1,11 @@
+import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
+@Listeners(CustomListener.class)
 
 public class OpenAccountTest extends BaseClass {
     AddCustomer addCustomerDetails;
@@ -40,7 +43,10 @@ public class OpenAccountTest extends BaseClass {
     @Test(priority = 4)
     public void userDropDownTest() throws InterruptedException {
         openAccount.userDropDown("Harry Potter", "Dollar");
-
+    }
+    @Test(priority = 5)
+    public void failureTest() throws InterruptedException{
+        Assert.assertEquals(false,true);
     }
 
     @AfterMethod
