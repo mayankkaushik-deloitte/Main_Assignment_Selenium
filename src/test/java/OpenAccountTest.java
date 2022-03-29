@@ -31,22 +31,28 @@ public class OpenAccountTest extends BaseClass {
     @Test(priority = 1)
     public void clickCustomersTest() throws InterruptedException {
         customersPage=openAccount.customerBtnClick();
+        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+
     }
     @Test(priority = 2)
     public void clickHomeTest() throws InterruptedException {
         loginPage=openAccount.homeBtnClick();
+        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
     }
     @Test(priority = 3)
     public void clickAddCustomerTest() throws InterruptedException {
         addCustomerDetails = openAccount.clickAddCustomer();
+        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
     }
     @Test(priority = 4)
     public void userDropDownTest() throws InterruptedException {
         openAccount.userDropDown("Harry Potter", "Dollar");
+        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
     }
     @Test(priority = 5)
     public void failureTest() throws InterruptedException{
         Assert.assertEquals(false,true);
+        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
     }
 
     @AfterMethod

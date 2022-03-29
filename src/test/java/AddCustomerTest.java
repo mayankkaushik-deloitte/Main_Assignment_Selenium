@@ -54,8 +54,12 @@ public class AddCustomerTest extends BaseClass{
             System.out.println(first+" "+last+" "+postcode);
             //log.error("test failed in reading");
             addCustomerDetails.addCustomerFun(first,last,postcode);
+            driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+
             System.out.println(addCustomerDetails.val);
+            driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
             addCustomerDetails.customerBtn();
+            driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
             customerPage.addCustomers();
         }
         wb.close();
@@ -66,9 +70,12 @@ public class AddCustomerTest extends BaseClass{
     @Test(priority =2)
     public void homeBtnTest() throws InterruptedException {
         loginPage = addCustomerDetails.clickHomeBtn();
+        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+
     }
     @Test(priority = 3)
     public void accountBtnTest() throws InterruptedException {
+        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
         openAccount = addCustomerDetails.accountBtn();
     }
     @Test(priority = 4)

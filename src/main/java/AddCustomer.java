@@ -87,5 +87,6 @@ public class AddCustomer extends BaseClass {
     public static void goToHome() {
         //click on home button
         driver.findElement(By.xpath("//button[normalize-space()='Home']")).click();
+        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
     }
 }
