@@ -75,12 +75,13 @@ public class AddCustomerTest extends BaseClass{
     }
     @Test(priority = 3)
     public void accountBtnTest() throws InterruptedException {
-        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
         openAccount = addCustomerDetails.accountBtn();
+        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
     }
     @Test(priority = 4)
     public void customerBtnTest() throws InterruptedException {
         customerPage = addCustomerDetails.customerBtn();
+        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
     }
     @AfterMethod
     public void DataTear(){

@@ -5,7 +5,6 @@
         <classes>
             <class name="AddCustomerTest">
                 <methods>
-                    <include name="addCustomerTest"/>
                     <include name="homeBtnTest"/>
                     <include name="accountBtnTest"/>
                     <include name="customerBtnTest"/>

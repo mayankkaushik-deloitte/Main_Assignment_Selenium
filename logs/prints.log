@@ -1,3 +1,1 @@
-13:47:16.750 [AsyncHttpClient-1-11] TRACE io.netty.handler.codec.http.websocketx.WebSocket08FrameEncoder - Encoding WebSocket Frame opCode=8 length=26
-13:47:20.823 [AsyncHttpClient-1-14] TRACE io.netty.handler.codec.http.websocketx.WebSocket08FrameEncoder - Encoding WebSocket Frame opCode=8 length=26
-13:47:25.666 [AsyncHttpClient-1-17] TRACE io.netty.handler.codec.http.websocketx.WebSocket08FrameEncoder - Encoding WebSocket Frame opCode=8 length=26
+14:06:16.466 [AsyncHttpClient-1-11] TRACE io.netty.handler.codec.http.websocketx.WebSocket08FrameEncoder - Encoding WebSocket Frame opCode=8 length=26
