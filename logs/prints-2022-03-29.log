@@ -1,0 +1,3 @@
+13:04:01.570 [AsyncHttpClient-1-15] TRACE io.netty.handler.logging.LoggingHandler - [id: 0x5c870e9f, L:/127.0.0.1:60754 ! R:localhost/127.0.0.1:60064] INACTIVE
+13:04:01.572 [AsyncHttpClient-1-15] DEBUG org.asynchttpclient.netty.handler.HttpHandler - Channel Closed: [id: 0x5c870e9f, L:/127.0.0.1:60754 ! R:localhost/127.0.0.1:60064] with attribute DISCARD
+13:04:01.572 [AsyncHttpClient-1-15] TRACE io.netty.handler.logging.LoggingHandler - [id: 0x5c870e9f, L:/127.0.0.1:60754 ! R:localhost/127.0.0.1:60064] UNREGISTERED

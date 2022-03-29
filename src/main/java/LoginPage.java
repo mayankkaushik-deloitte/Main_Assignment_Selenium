@@ -2,6 +2,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.concurrent.TimeUnit;
+
 public class LoginPage extends BaseClass{
     //Page Factory- OR;
     @FindBy(xpath = "/html/body/div/div/div[2]/div/div[1]/div[2]/button")
@@ -20,16 +22,16 @@ public class LoginPage extends BaseClass{
         return driver.getTitle();
     }
     public BankManager clickOnManagerLogin() throws InterruptedException {
-        Thread.sleep(2000);
+        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
         bankManager.click();
-        Thread.sleep(2000);
+        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
         return new BankManager();
 
     }
     public NamePage clickoncustomerlogin() throws InterruptedException {
-        Thread.sleep(2000);
+        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
         customer.click();
-        Thread.sleep(2000);
+        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
         return new NamePage();
     }
 

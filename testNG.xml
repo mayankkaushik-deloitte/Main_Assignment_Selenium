@@ -3,22 +3,22 @@
 <suite name="All Test Suite">
     <test verbose="2" preserve-order="true" name="C:\Users\mayakaushik\Main_Assignment_Selenium">
         <classes>
-<!--            <class name="AddCustomerTest">-->
-<!--                <methods>-->
-<!--                    <include name="addCustomerTest"/>-->
-<!--                    <include name="homeBtnTest"/>-->
-<!--                    <include name="accountBtnTest"/>-->
-<!--                    <include name="customerBtnTest"/>-->
-<!--                </methods>-->
-<!--            </class>-->
-<!--            <class name="BankManagerTest">-->
-<!--                <methods>-->
-<!--                    <include name="addcustomertest"/>-->
-<!--                    <include name="openaccounttest"/>-->
-<!--                    <include name="customerstest"/>-->
-<!--                    <include name="homebtmtest"/>-->
-<!--                </methods>-->
-<!--            </class>-->
+            <class name="AddCustomerTest">
+                <methods>
+                    <include name="addCustomerTest"/>
+                    <include name="homeBtnTest"/>
+                    <include name="accountBtnTest"/>
+                    <include name="customerBtnTest"/>
+                </methods>
+            </class>
+            <class name="BankManagerTest">
+                <methods>
+                    <include name="addcustomertest"/>
+                    <include name="openaccounttest"/>
+                    <include name="customerstest"/>
+                    <include name="homebtmtest"/>
+                </methods>
+            </class>
             <class name="LoginPageTest">
                 <methods>
                     <include name="loginpagetitletest"/>
@@ -26,20 +26,20 @@
                     <include name="customerLoginTest"/>
                 </methods>
             </class>
-<!--            <class name="OpenAccountTest">-->
-<!--                <methods>-->
-<!--                    <include name="clickCustomersTest"/>-->
-<!--                    <include name="clickHomeTest"/>-->
-<!--                    <include name="clickAddCustomerTest"/>-->
-<!--                    <include name="userDropDownTest"/>-->
-<!--                    <include name="failureTest"/>-->
-<!--                </methods>-->
-<!--            </class>-->
-<!--            <class name="NamePageTest">-->
-<!--                <methods>-->
-<!--                    <include name="depositTest" />-->
-<!--                </methods>-->
-<!--            </class>-->
+            <class name="OpenAccountTest">
+                <methods>
+                    <include name="clickCustomersTest"/>
+                    <include name="clickHomeTest"/>
+                    <include name="clickAddCustomerTest"/>
+                    <include name="userDropDownTest"/>
+                    <include name="failureTest"/>
+                </methods>
+            </class>
+            <class name="NamePageTest">
+                <methods>
+                    <include name="depositTest" />
+                </methods>
+            </class>
         </classes>
     </test>
 </suite>

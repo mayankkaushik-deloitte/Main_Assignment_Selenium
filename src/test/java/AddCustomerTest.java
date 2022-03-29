@@ -1,9 +1,7 @@
-import com.graphbuilder.math.OpNode;
-import org.apache.commons.math3.analysis.function.Add;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
-import java.util.Currency;
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 @Listeners(CustomListener.class)
 public class AddCustomerTest extends BaseClass{
@@ -28,16 +26,14 @@ public class AddCustomerTest extends BaseClass{
         driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
     }
     @Test(priority = 1)
-    public void addCustomerTest() throws InterruptedException {
+    public void addCustomerTest() throws InterruptedException, IOException {
         addCustomerDetails.addCustomerFun();
         Assert.assertEquals(addCustomerDetails.val,"Customer added successfully with customer id :6");
-
     }
 
     @Test(priority =2)
     public void homeBtnTest() throws InterruptedException {
         loginPage = addCustomerDetails.clickHomeBtn();
-
     }
     @Test(priority = 3)
     public void accountBtnTest() throws InterruptedException {

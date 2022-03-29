@@ -32,19 +32,19 @@ public class OpenAccount extends BaseClass{
     }
     public CustomerLogin customerBtnClick() throws InterruptedException {
         customersBtn.click();
-        Thread.sleep(2000);
+        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
         return new CustomerLogin();
     }
 
     public LoginPage homeBtnClick() throws InterruptedException {
         btnHome.click();
-        Thread.sleep(2000);
+        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
         return new LoginPage();
     }
 
     public AddCustomer clickAddCustomer() throws InterruptedException {
         addCustomer.click();
-        Thread.sleep(2000);
+        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
         return new AddCustomer();
 
     }

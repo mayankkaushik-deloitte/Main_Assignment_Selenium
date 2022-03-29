@@ -4,6 +4,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
+import java.util.concurrent.TimeUnit;
+
 public class CustomerLogin extends BaseClass{
     @FindBy(xpath = "//input[@placeholder='Search Customer']")
     WebElement inputCustomer;
@@ -25,23 +27,23 @@ public class CustomerLogin extends BaseClass{
     }
     public void fillValue(String username) throws InterruptedException{
         inputCustomer.sendKeys(username);
-        Thread.sleep(2000);
+        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
         deleteBtn.click();
-        Thread.sleep(1000);
+        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
     }
     public AddCustomer addCustomers() throws InterruptedException {
         addCustomer.click();
-        Thread.sleep(2000);
+        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
         return new AddCustomer();
     }
     public LoginPage clickHome() throws InterruptedException {
         homeBtn.click();
-        Thread.sleep(2000);
+        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
         return new LoginPage();
     }
     public OpenAccount clickOpenAccount() throws InterruptedException {
         openBtn.click();
-        Thread.sleep(2000);
+        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
         return new OpenAccount();
     }
 
