@@ -27,7 +27,7 @@ public class CustomerLoginTest extends BaseClass{
     }
     @Test
     public void fillValueTest1() throws InterruptedException {
-        objcustomer.fillValue("Fsd");
+        objcustomer.fillValue("100");
     }
     @Test
     public void addCustomerTest() throws InterruptedException {
