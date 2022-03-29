@@ -1,3 +1,5 @@
-13:04:01.570 [AsyncHttpClient-1-15] TRACE io.netty.handler.logging.LoggingHandler - [id: 0x5c870e9f, L:/127.0.0.1:60754 ! R:localhost/127.0.0.1:60064] INACTIVE
-13:04:01.572 [AsyncHttpClient-1-15] DEBUG org.asynchttpclient.netty.handler.HttpHandler - Channel Closed: [id: 0x5c870e9f, L:/127.0.0.1:60754 ! R:localhost/127.0.0.1:60064] with attribute DISCARD
-13:04:01.572 [AsyncHttpClient-1-15] TRACE io.netty.handler.logging.LoggingHandler - [id: 0x5c870e9f, L:/127.0.0.1:60754 ! R:localhost/127.0.0.1:60064] UNREGISTERED
+13:26:59.845 [main] TRACE org.apache.xmlbeans.impl.common.XBeanDebug - Resolving type for handle worksheetf539doctype
+13:26:59.854 [main] TRACE org.apache.xmlbeans.impl.common.XBeanDebug - Resolving type for handle ctworksheet530dtype
+13:26:59.860 [main] TRACE org.apache.xmlbeans.impl.common.XBeanDebug - Resolving type for handle ctsheetdata8408type
+13:26:59.863 [main] TRACE org.apache.xmlbeans.impl.common.XBeanDebug - Resolving type for handle ctrowdd39type
+13:26:59.868 [main] TRACE org.apache.xmlbeans.impl.common.XBeanDebug - Resolving type for handle ctcell842btype

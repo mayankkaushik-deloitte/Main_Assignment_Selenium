@@ -50,17 +50,17 @@ public class AddCustomer extends BaseClass {
     public AddCustomer(){
         PageFactory.initElements(driver,this);
     }
-    public static void addCustomerFun() throws InterruptedException, IOException {
+    public static void addCustomerFun(String fname,String lname,String postcode) throws InterruptedException, IOException {
         log.error("+++++++++ADD CUSTOMER++++++++++");
 
         driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
 
-        fName.sendKeys("Mayank");
+        fName.sendKeys(fname);
         driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
 
-        lName.sendKeys("Kaushik");
+        lName.sendKeys(lname);
         driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
-        postCode.sendKeys("201005");
+        postCode.sendKeys(postcode);
         driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
         addCustomerBtn.click();
         Alert alertStatus = driver.switchTo().alert();
